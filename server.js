@@ -4,7 +4,7 @@
 var express        = require( 'express' )
 var User           = require( './models/User.js' )
 var app            = express()
-var http           = require('http').Server(app)
+var http           = require( 'http' ).Server( app )
 var path           = require( "path" )
 var logger         = require( "morgan" )
 var bodyParser     = require( "body-parser" )
@@ -14,6 +14,7 @@ var mongoose       = require( "mongoose" )
 var passport       = require( "passport" )
 var expressSession = require( "express-session" )
 var cookieParser   = require( "cookie-parser" )
+//var io             = require('socket.io')(http);
 var PORT           = process.env.PORT || 3000
 var DB             = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/fogo'
 

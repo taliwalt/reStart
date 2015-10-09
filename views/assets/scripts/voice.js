@@ -1,5 +1,5 @@
 var recognition = new webkitSpeechRecognition
-var count = 0
+var count = 1
 var analysis
 function init() {
 	recognition.continuous = true
@@ -18,7 +18,7 @@ function init() {
 			str += event.results[i][0].transcript
 		}
 		arr = str.split( " " )
-		if ( arr.length > 100 + ( 50 * count ) ) {
+		if ( arr.length > 50 * count ) {
 			console.log( "Sent string " + count )
 			setText(str)
 			count++
