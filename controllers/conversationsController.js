@@ -20,13 +20,15 @@ function index ( req, res ) {
 
 // make a new conversation
 function create ( req, res ) {
-  console.log( "It's in here" )
+  console.log("It's in here")
+	console.log( req.user )
   var conversation = new Conversation()
   // Setting conversation properties
   console.log( "REqBody")
   console.log( req.body )
   console.log( req.user )
-  conversation.owner  = parseInt( req.user.id )
+  conversation.owner_id = req.user.fb.id
+	conversation.owner  = req.user.fb.firstName
   conversation.topics = req.body.topic
   conversation.group  = req.body.group
   console.log( "Lat")
@@ -40,6 +42,8 @@ function create ( req, res ) {
     if ( error ) {
       res.json( error )
     } else {
+			console.log("Convo SAVED")
+			console.log( conversation )
       res.json( conversation )
     }
   } )

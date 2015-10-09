@@ -6,34 +6,34 @@ var image = {
                 //origin: new google.maps.Point(0, 0),
                 // The anchor for this image is the base of the flagpole at (0, 32).
                 anchor: new google.maps.Point(0, 32)
-        };      
-      
+        };
+
         var t, map;
         var myjson = [];
         $.getJSON("/api/conversations", function(json){
                 console.log("json")
-                console.log()
+                console.log( json )
                 myjson = json;
              });
-             
+
         function fillInfo( convo, marker ) {
           var topicList = ""
           for ( var i = 0; i < convo.topics.length; i ++ ) {
             topicList += convo.topics[ i ] + ", "
           }
-          marker.window.content = 
-                "<p>owner: " + convo.owner + ",</p>" + 
+          marker.window.content =
+                "<p>owner: " + convo.owner + ",</p>" +
                 "<p>Topics: " + topicList + "</p>" +
                 "<p>Location: " + convo.location + "</p>"
         }
-             
+
         function addMarker( latitude, longitude, map ) {
           console.log( this )
-          var newMark = new google.maps.Marker( { 
+          var newMark = new google.maps.Marker( {
               position: new google.maps.LatLng( latitude, longitude ),
               cnt: true,
               icon: 'assets/images/fogoSmall.png',
-              window: new google.maps.InfoWindow( { 
+              window: new google.maps.InfoWindow( {
                 content: "This is a marker!"
               } )
           } )
@@ -44,14 +44,14 @@ var image = {
            newMark.setMap( map )
            return newMark
         }
-             
+
         function makeConvoshow( map ) {
           console.log( "it's here")
           for ( var i = 0; i < myjson.length; i++ ) {
               //console.log( myjson[ i ] )
               //makeCon( myjson[ i ] )
               var t = addMarker( myjson[ i ].latitude, myjson[ i ].longitude, map )
-              fillInfo( myjson[ i ], t )         
+              fillInfo( myjson[ i ], t )
           }
         }
 
@@ -63,7 +63,7 @@ var image = {
             initialize( curLoc )
           } )
         }
-      
+
         function initialize( curLoc ) {
           console.log( curLoc )
           var mapProp = {
@@ -176,21 +176,21 @@ var image = {
   }
 ]
           }
-          
+
           map = new google.maps.Map( document.getElementById( "fogo" ), mapProp )
-          google.maps.event.addListener( map, 'click', function( position ) { 
+          google.maps.event.addListener( map, 'click', function( position ) {
               console.log( position )
               addMarker( position.latLng.H, position.latLng.L, map );
           } )
           map.setOptions( {draggable: false, minZoom: 15, scrollwheel: false, disableDoubleClickZoom: true } );
           console.log( "centet")
           var centerMarker = new google.maps.Marker( {
-            position: mapProp.center, 
+            position: mapProp.center,
             cnt     : true,
             icon    : 'assets/images/blueFlame.png' ||  'http://icons.iconarchive.com/icons/glyphish/glyphish/32/07-map-marker-icon.png',
-            window: new google.maps.InfoWindow( { 
+            window: new google.maps.InfoWindow( {
                 content: "<a href=#>BroadCast</a>"
-              } ) 
+              } )
           } )
           google.maps.event.addListener( centerMarker, 'click', function() {
             this.cnt ? this.window.open( map, this) : this.window.close()

@@ -8,6 +8,7 @@ var mongoose = require( 'mongoose' )
 //CREATING SCHEMA
 //===============
 var Conversation = new mongoose.Schema( {
+	owner_id: String,
 	owner: String,
 	group: String,
 	topics: [ String ],

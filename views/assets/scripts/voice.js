@@ -1,5 +1,5 @@
 var recognition = new webkitSpeechRecognition
-var count = 1
+var count = 0
 var analysis
 function init() {
 	recognition.continuous = true
@@ -18,13 +18,13 @@ function init() {
 			str += event.results[i][0].transcript
 		}
 		arr = str.split( " " )
-		if (arr.length > 50 * count) {
+		if ( arr.length > 100 + ( 50 * count ) ) {
 			console.log( "Sent string " + count )
 			setText(str)
 			count++
 		}
 	}
-	
+
 	recognition.start()
 }
 
@@ -42,7 +42,8 @@ function makeCall(data) {
 				alert( 'text status ' + textStatus + ', err ' + err )
 			}
         } )
-				console.log( analysis )
+				console.log(analysis)
+				//call socket.io
 }
 
 function setText( text ) {
