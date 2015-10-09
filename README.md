@@ -43,6 +43,10 @@ We established a best practices code style to keep our code uniform and appear a
 - Slack
 - Group text
 
+#####Hurdles
+- misallocation of bandwidth
+- broken line of communication
+- adaptable decision making
 
 ---
 ###Technologies Used
@@ -70,15 +74,15 @@ Install: npm install 'dependecy name' --save
 
 ###User Stories
 >####-As a convo seeker I use the site to discover real-time conversations, nearby
-
+<br>
 >####-As a convo seeker I'm able to join and participate in real time convos in person
-
+<br>
 >####-As a convo seeker it's easy to start a convo with anyone on fogo
-
+<br>
 >####-As convo starter I broadcast my location and the topics I'm open to talking about
-
+<br>
 >####-As a convo starter my friends and I broadcast our Word Cloud showing a real time new like ticker to show how our conversation is constantly changing 
-
+<br>
 >####-As a convo starter I'm able to share real time audio and photos of a conversation I'm having with another person or group of friends
 
 
@@ -100,9 +104,10 @@ Install: npm install 'dependecy name' --save
 ###Future Features
 ---
 
-###[FOGO](http://voltronfogo.herokuapp.com/)
 
-###[FOGO REDUX](hhttp://fogofire.herokuapp.com/)
+###[FOGO](http://voltronfogo.herokuapp.com/)
+<br>
+###[FOGO REDUX](http://fogofire.herokuapp.com/)
 
 
 
