@@ -3,10 +3,11 @@
 <head>
     <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDOdtScNweewSVaWPtWxu_SEKGC7Y1w01A&sensor=false&extension=.js'></script> 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <title>Facebook authentication</title>
+    <title>Fogo</title>
 </head>
 <body>
-    <h1>FACEBOOK LOGIN USING PASSPORT</h1>  
+    <%- include('partials/navbar.ejs') %>
+    <!-- <h1><img src="/assets/images/fogo-logo-600px.png" alt="" style="width:80px;height:80px"></h1> -->  
     <div>
     <% if(user != undefined){ %>
         <h2>Below is the data sent by facebook</h2>
@@ -16,7 +17,7 @@
         <a href="/addCon">AddCon</a>
         <a href="/logout">Logout</a>
     <% } else { %>
-        <a href="/auth/facebook">Login with Facebook</a>
+        <!-- <a href="/auth/facebook"><img src="/assets/images/Flogin.png"></a> -->
     <% } %>
     </div>
      <div id="fogo" style="width:1000px;height:1000px;"></div>
