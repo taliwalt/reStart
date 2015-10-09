@@ -22,7 +22,7 @@ module.exports = function( passport ) {
     passport.use( 'facebook', new FacebookStrategy( {
         clientID        : process.env.FACEBOOK_API_KEY,
         clientSecret    : process.env.FACEBOOK_API_SECRET,
-        callbackURL     : 'http://https://fogofire.herokuapp.com/:' + process.env.PORT + '/auth/facebook/callback',
+        callbackURL     : 'http://https://fogofire.herokuapp.com/auth/facebook/callback',
         enableProof     : true,
         profileFields   : [ 'name', 'emails' ]
     }, function( access_token, refresh_token, profile, done ) {
