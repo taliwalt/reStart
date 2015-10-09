@@ -32,7 +32,7 @@ var image = {
           var newMark = new google.maps.Marker( { 
               position: new google.maps.LatLng( latitude, longitude ),
               cnt: true,
-              icon: 'http://icons.iconarchive.com/icons/glyphish/glyphish/32/07-map-marker-icon.png ',
+              icon: 'assets/images/fogoSmall.png',
               window: new google.maps.InfoWindow( { 
                 content: "This is a marker!"
               } )
@@ -187,7 +187,7 @@ var image = {
           var centerMarker = new google.maps.Marker( {
             position: mapProp.center, 
             cnt     : true,
-            icon    : 'assets/images/fogoSmall.png' ||  'http://icons.iconarchive.com/icons/glyphish/glyphish/32/07-map-marker-icon.png',
+            icon    : 'assets/images/blueFlame.png' ||  'http://icons.iconarchive.com/icons/glyphish/glyphish/32/07-map-marker-icon.png',
             window: new google.maps.InfoWindow( { 
                 content: "<a href=#>BroadCast</a>"
               } ) 
