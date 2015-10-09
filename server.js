@@ -4,6 +4,7 @@
 var express        = require( 'express' )
 var User           = require( './models/User.js' )
 var app            = express()
+var http           = require('http').Server(app)
 var path           = require( "path" )
 var logger         = require( "morgan" )
 var bodyParser     = require( "body-parser" )
