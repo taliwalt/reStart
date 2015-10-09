@@ -27,7 +27,7 @@ mongoose.connect( DB )
 
 app.use( function( req, res, next ) {
   global.user = req.user
-  next()  
+  next()
 } )
 
 
@@ -46,7 +46,7 @@ app.use(
 app.use( function( req, res, next ) {
   console.log( "User" )
   console.log( req.user )
-  next()  
+  next()
 } )
 
 //Sets up passport
@@ -80,7 +80,7 @@ app.get(  '/auth/facebook', passport.authenticate( 'facebook', { scope: 'email' 
 
 //Path called after user gets back from facebook
 app.get( '/auth/facebook/callback',
-    passport.authenticate( 'facebook', { 
+    passport.authenticate( 'facebook', {
         successRedirect: '/',
         failureRedirect: '/'
     } )
@@ -92,11 +92,13 @@ app.get( '/logout', function( req, res ) {
     res.redirect( '/' )
 } )
 
-app.get( '/addCon', function( req, res ) { 
+app.get( '/addCon', function( req, res ) {
     res.render( 'in.ejs', { user: req.user } )
 } )
 
-
+app.get('/voice', function (req, res) {
+	res.render( 'voice.ejs' )
+} )
 
 app.use( '/api', convoRouter )
 app.use( '/api', usersRouter )
