@@ -23,9 +23,16 @@ function create ( req, res ) {
   console.log( "It's in here" )
   var conversation = new Conversation()
   // Setting conversation properties
+  console.log( "REqBody")
   console.log( req.body )
-  conversation.owner  = global.user
-  conversation.topics = req.body.topics
+  console.log( req.user )
+  conversation.owner  = parseInt( req.user.id )
+  conversation.topics = req.body.topic
+  conversation.group  = req.body.group
+  console.log( "Lat")
+  console.log( req.body.latitude )
+  conversation.latitude = req.body.latitude
+  conversation.longitude = req.body.longitude
   conversation.isLive = true
 
   // check if conversation saved
@@ -60,6 +67,8 @@ function update ( req, res ) {
       convo.group    = req.body.group       || convo.group
       convo.topics   = req.body.topics      || convo.topics
       convo.location = req.body.location    || convo.location
+      convo.latitude = req.body.latitude    || convo.latitude
+      convo.longitude = req.body.longitude    || convo.longitude
       console.log(convo.owner)
       convo.save(function ( error ) {
         if ( error ) {

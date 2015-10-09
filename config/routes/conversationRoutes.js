@@ -12,6 +12,7 @@ var conversationsController = require( '../../controllers/conversationsControlle
     // If the user is authenticated, then we continue the execution
     if ( req.isAuthenticated() ) {
         console.log( "USer authenticated!")
+        console.log( req.body)
         return next();
     }
     console.log("Nope!")

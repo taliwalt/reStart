@@ -92,6 +92,10 @@ app.get( '/logout', function( req, res ) {
     res.redirect( '/' )
 } )
 
+app.get( '/addCon', function( req, res ) { 
+    res.render( 'in.ejs', { user: req.user } )
+} )
+
 
 
 app.use( '/api', convoRouter )

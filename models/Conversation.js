@@ -8,10 +8,12 @@ var mongoose = require( 'mongoose' )
 //CREATING SCHEMA
 //===============
 var Conversation = new mongoose.Schema( {
-	owner: Number,
-	group: [ Number ],
+	owner: String,
+	group: String,
 	topics: [ String ],
 	location: String,
+	latitude: Number,
+	longitude: Number,
 	isLive: Boolean
 } )
 
